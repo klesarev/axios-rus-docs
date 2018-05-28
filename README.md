@@ -18,6 +18,7 @@
 - [Примеры использования](/examples/)
 - ["Готовим" axios правильно!](/cookbook.md)
 - [Уроки](/lessons/)
+- [Cравнение с Fetch и XMLHttpRequest](compare.md)
 
 Ссылка на оригинальную документацию и дистрибутив - [скачать](https://github.com/axios/axios).
 
