@@ -566,7 +566,8 @@ axios.post('/user/12345', {
 source.cancel('Operation canceled by the user.');
 ```
 
-You can also create a cancel token by passing an executor function to the `CancelToken` constructor:
+
+Вы также можете создать token для отмены запроса, передав функцию конструктору `CancelToken`:
 
 ```js
 const CancelToken = axios.CancelToken;
@@ -574,24 +575,24 @@ let cancel;
 
 axios.get('/user/12345', {
   cancelToken: new CancelToken(function executor(c) {
-    // An executor function receives a cancel function as a parameter
+    // исполняемая функция получает функцию отмены в качестве параметра
     cancel = c;
   })
 });
 
-// cancel the request
+// отмена запроса
 cancel();
 ```
 
-> Note: you can cancel several requests with the same cancel token.
+> Примечание. Вы можете отменить несколько запросов одним токеном(cancell token).
 
-## Using application/x-www-form-urlencoded format
+## Использование формата application/x-www-form-urlencoded
 
-By default, axios serializes JavaScript objects to `JSON`. To send data in the `application/x-www-form-urlencoded` format instead, you can use one of the following options.
+По умолчанию axios переводит объекты JavaScript в `JSON`. Чтобы отправить данные в формате `application/x-www-form-urlencoded`, вы можете использовать один из следующих вариантов.
 
-### Browser
+### Браузер
 
-In a browser, you can use the [`URLSearchParams`](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) API as follows:
+В браузере вы можете испольприменить API [`URLSearchParams`](https://developer.mozilla.org/ru/docs/Web/API/URLSearchParams) следующим образом:
 
 ```js
 const params = new URLSearchParams();
@@ -636,10 +637,7 @@ axios.post('http://something.com/', querystring.stringify({ foo: 'bar' }));
 
 ## О версиях...
 
-Until axios reaches a `1.0` release, breaking changes will be released with a new minor version. For example `0.5.1`, and `0.5.4` will have the same API, but `0.6.0` will have breaking changes.
-
-
-До тех пор, пока Axios не достигнет версии «1.0», серьезные изменения автор будут выпущены с новой минорной версией. Например, `0.5.1` и` 0.5.4` будут иметь один и тот же API, но версия `0.6.0` будет иметь в своем составе уже серьезные доработки.
+До тех пор, пока Axios не достигнет версии «1.0», серьезные изменения автор будут выпущены с новой минорной версией. Например, `0.5.1` и `0.5.4` будут иметь один и тот же API, но версия `0.6.0` будет иметь в своем составе уже серьезные доработки.
 
 ## Promises / Промисы
 
@@ -652,7 +650,7 @@ Until axios reaches a `1.0` release, breaking changes will be released with a ne
 - [Promise для новичков](https://habr.com/company/zerotech/blog/317256/)
 
 ## TypeScript
-Axios и [TypeScript](http://typescriptlang.org) работают отлично!
+Axios и [TypeScript](http://typescriptlang.org) работают вместе
 ```typescript
 import axios from 'axios';
 axios.get('/user?ID=12345');
