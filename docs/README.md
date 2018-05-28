@@ -660,7 +660,7 @@ axios.get('/user?ID=12345');
 
 ## Респект...
 
-Создатели Axios были вдохновлены[$ http service](https://docs.angularjs.org/api/ng/service/$http), представленным в [Ангуляре](https://angularjs.org/). В конечном счете, axios - это попытка дать пользователям службу, похожую на $http-like в Angular, за пределами этого фреймворка.
+Создатели Axios были вдохновлены [$http-service](https://docs.angularjs.org/api/ng/service/$http), который есть в [Ангуляре / AngularJS](https://angularjs.org/). В конечном счете, axios - это попытка дать пользователям службу, похожую на $http-like в Angular, за пределами этого фреймворка.
 
 ## Лицензия
 
