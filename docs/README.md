@@ -609,7 +609,7 @@ const qs = require('qs');
 axios.post('/foo', qs.stringify({ 'bar': 123 }));
 ```
 
-Or in another way (ES6),
+Или по-другому... (ES6),
 
 ```js
 import qs from 'qs';
@@ -623,20 +623,23 @@ const options = {
 axios(options);
 ```
 
-### Node.js
+### Node JS
 
-In node.js, you can use the [`querystring`](https://nodejs.org/api/querystring.html) module as follows:
+В Node JS вы можете использовать модуль [`querystring`](https://nodejs.org/api/querystring.html) так:
 
 ```js
 const querystring = require('querystring');
 axios.post('http://something.com/', querystring.stringify({ foo: 'bar' }));
 ```
 
-You can also use the [`qs`](https://github.com/ljharb/qs) library.
+Вы также можете использовать библиотеку [`qs`](https://github.com/ljharb/qs).
 
-## Semver
+## О версиях...
 
 Until axios reaches a `1.0` release, breaking changes will be released with a new minor version. For example `0.5.1`, and `0.5.4` will have the same API, but `0.6.0` will have breaking changes.
+
+
+До тех пор, пока Axios не достигнет версии «1.0», серьезные изменения автор будут выпущены с новой минорной версией. Например, `0.5.1` и` 0.5.4` будут иметь один и тот же API, но версия `0.6.0` будет иметь в своем составе уже серьезные доработки.
 
 ## Promises / Промисы
 
