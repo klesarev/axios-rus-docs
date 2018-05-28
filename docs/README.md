@@ -340,8 +340,8 @@ _пример: axios.get(params)_, где __*params*__ настройки
   // and https requests, respectively, in node.js. This allows options to be added like
   // `keepAlive` that are not enabled by default.
 
-  // `httpAgent` и` httpsAgent` - установка своего `httpAgent`, который будет использоваться при выполнении http
-  // и https-запросов, соответственно, в node.js. 
+  // `httpAgent` и` httpsAgent` - установка своего `httpAgent`, который будет использоваться 
+  // при выполнении http и https-запросов. Соответственно, в node.js. 
   // Это позволяет добавлять опции (например `keepAlive`), которые по умолчанию не включены.
   httpAgent: new http.Agent({ keepAlive: true }),
   httpsAgent: new https.Agent({ keepAlive: true }),
@@ -368,9 +368,6 @@ _пример: axios.get(params)_, где __*params*__ настройки
     }
   },
 
-  // `cancelToken` specifies a cancel token that can be used to cancel the request
-  // (see Cancellation section below for details)
-
   // `cancelToken` указывает токен, который может использоваться для отмены запроса
   cancelToken: new CancelToken(function (cancel) {
   })
@@ -384,25 +381,25 @@ _пример: axios.get(params)_, где __*params*__ настройки
 
 ```js
 {
-  // `data` is the response that was provided by the server
+  // `data`  - собственно данные ответа от сервера тут
   data: {},
 
-  // `status` is the HTTP status code from the server response
+  // `status` HTTP код ответа от сервера
+  // полный список тут - https://developer.mozilla.org/ru/docs/Web/HTTP/Status
   status: 200,
 
-  // `statusText` is the HTTP status message from the server response
+  // `statusText` - текст сообщение ответа от сервера
   statusText: 'OK',
 
-  // `headers` the headers that the server responded with
-  // All header names are lower cased
+  // `headers` - заголовки ответа от сервера.
   headers: {},
 
-  // `config` is the config that was provided to `axios` for the request
+  // `config` - это конфигурация `axios` для запроса
   config: {},
 
-  // `request` is the request that generated this response
-  // It is the last ClientRequest instance in node.js (in redirects)
-  // and an XMLHttpRequest instance the browser
+  // `request` - это запрос, который сгенерировал этот ответ
+  // Это последний экземпляр ClientRequest в node.js (в переадресации)
+  // и экземпляр XMLHttpRequest в браузере
   request: {}
 }
 ```
