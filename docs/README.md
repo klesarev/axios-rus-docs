@@ -34,8 +34,6 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 
 ## Установка
 
----
-
 _посредством __npm__ (у вас должен быть установлен пакет Node JS [ссылка](https://nodejs.org/en/) )_
 ```js
 $ npm install axios
@@ -50,8 +48,6 @@ $ bower install axios
 ```
 
 ## Примеры использования
-
----
 ### GET - запрос
 ```javascript
 // делаем GET запрос чтобы получить пользователя (user) 
@@ -126,8 +122,6 @@ axios.all([getUserAccount(), getUserPermissions()])
 ```
 
 ## Axios API
-
----
 
 Запросы могут быть выполнены путем передачи параметров/настроек в ```axios(config)```
 ```javascript
@@ -216,10 +210,10 @@ _пример: axios.get(params)_, где __*params*__ настройки
 
 ```js
 {
-  // `url` is the server URL that will be used for the request
+  // `url` - адрес сервера. куда отправляется запрос
   url: '/user',
 
-  // `method` is the request method to be used when making the request
+  // `method` тип http-запроса (get, post, delete и т.д.)
   method: 'get', // default
 
   // `baseURL` will be prepended to `url` unless `url` is absolute.
