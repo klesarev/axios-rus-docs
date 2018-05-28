@@ -600,9 +600,9 @@ params.append('param2', 'value2');
 axios.post('/foo', params);
 ```
 
-> Note that `URLSearchParams` is not supported by all browsers (see [caniuse.com](http://www.caniuse.com/#feat=urlsearchparams)), but there is a [polyfill](https://github.com/WebReflection/url-search-params) available (make sure to polyfill the global environment).
+> Обратите внимание, что `URLSearchParams` поддерживается не всеми браузерами (см. [Caniuse.com](http://www.caniuse.com/#feat=urlsearchparams)), но существует [полифилл](https://github.com/WebReflection/url-search-params) (убедитесь, что полифилл используется в глобальной среде выполнения).
 
-Alternatively, you can encode data using the [`qs`](https://github.com/ljharb/qs) library:
+Кроме того, вы можете декодировать данные, используя библиотеку [`qs`](https://github.com/ljharb/qs):
 
 ```js
 const qs = require('qs');
