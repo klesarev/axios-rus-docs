@@ -34,6 +34,8 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 
 ## Установка
 
+---
+
 _посредством __npm__ (у вас должен быть установлен пакет Node JS [ссылка](https://nodejs.org/en/) )_
 ```js
 $ npm install axios
@@ -48,6 +50,8 @@ $ bower install axios
 ```
 
 ## Примеры использования
+
+---
 ### GET - запрос
 ```javascript
 // делаем GET запрос чтобы получить пользователя (user) 
@@ -89,7 +93,7 @@ async function getUser() {
 
 > **```FOX```:** `async/await` - часть нового стандарта ECMAScript 2017. Этот функционал не поддерживается IE и некоторыми старыми браузерами.
 > Почитать на русском можно [здесь](https://habr.com/company/ruvds/blog/326074/)
-> Также можно использовать *BABEL* для транспиляции(перевода) кода к стандарту ES5, который имеет практически полную совместимость с браузерами
+> Также можно использовать [*BABEL*](https://babeljs.io/) для транспиляции(перевода) кода к стандарту ES5, который имеет практически полную совместимость с браузерами
 
 ### POST - запрос
 ```javascript
@@ -122,6 +126,8 @@ axios.all([getUserAccount(), getUserPermissions()])
 ```
 
 ## Axios API
+
+---
 
 Запросы могут быть выполнены путем передачи параметров/настроек в ```axios(config)```
 ```javascript
@@ -167,8 +173,7 @@ axios('/user/12345');
 ##### axios.put(url[, data[, config]])
 ##### axios.patch(url[, data[, config]])
 
-**```FOX```**
-Используя данные методы, Вам необязательно указывать свойства ```method``` и ```data``` в настройках.
+>**```FOX```** используя данные методы, Вам необязательно указывать свойства ```method``` и ```data``` в настройках.
 
 ### Мультизапросы
 Вспомогательные функции для того чтобы использовать несколько запросов одновременно
@@ -189,9 +194,9 @@ const instance = axios.create({
 });
 ``` 
 
-### Instance methods
+### Методы экземпляра
 
-The available instance methods are listed below. The specified config will be merged with the instance config.
+Доступные методы экземпляра(образца) Axios перечислены ниже. Указанные настройки в них будут объединены с конфигурацией экземпляра.
 
 ##### axios#request(config)
 ##### axios#get(url[, config])
@@ -202,9 +207,12 @@ The available instance methods are listed below. The specified config will be me
 ##### axios#put(url[, data[, config]])
 ##### axios#patch(url[, data[, config]])
 
-## Request Config
 
-These are the available config options for making requests. Only the `url` is required. Requests will default to `GET` if `method` is not specified.
+
+## Настройка запросов
+
+Это параметры для запросов. Если тип запроса не указан, то по умолчанию будет выполняться GET запрос. Запросы указываются при вызове метода, в объекте.
+_пример: axios.get(params)_, где __*params*__ настройки
 
 ```js
 {
