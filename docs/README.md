@@ -347,13 +347,6 @@ _пример: axios.get(params)_, где __*params*__ настройки
   httpAgent: new http.Agent({ keepAlive: true }),
   httpsAgent: new https.Agent({ keepAlive: true }),
 
-  // 'proxy' defines the hostname and port of the proxy server
-  // Use `false` to disable proxies, ignoring environment variables.
-  // `auth` indicates that HTTP Basic auth should be used to connect to the proxy, and
-  // supplies credentials.
-  // This will set an `Proxy-Authorization` header, overwriting any existing
-  // `Proxy-Authorization` custom headers you have set using `headers`.
-
   // 'proxy' определяет имя хоста и порт прокси-сервера
   // Используйте `false` для отключения прокси при запросах, игнорируя глобальные среды.
   // `auth` указывает, что для подключения к прокси следует использовать HTTP Basic auth и
@@ -405,7 +398,7 @@ _пример: axios.get(params)_, где __*params*__ настройки
 }
 ```
 
-When using `then`, you will receive the response as follows:
+Используя `then` можно посмотреть ответ таким образом:
 
 ```js
 axios.get('/user/12345')
