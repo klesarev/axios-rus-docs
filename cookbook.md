@@ -1,8 +1,6 @@
 # Полезные "рецепты" для Axios
 
-In an effort to keep axios as light weight as possible, and to avoid a rats nest of code for supporting every possible integration, it is often necessary to say no to feature requests. This doesn't mean that those use cases aren't legitimate, but rather that they are easily supported by augmenting axios with other libraries.
-
-The following are the recipes for some of the commonly requested features.
+Чтобы стараться сохранять axios как можно "легче", а также не "раздувать" код, поддерживая все возможные фишки, зачастую приходится сказать "решительное НЕТ" - пулл реквестам :) Это совсем не означает что с ними что-то "не так", просто иногда более правильный путь - дополнять и расширять axios другими библиотеками.
 
 ### Promise.prototype.done
 
