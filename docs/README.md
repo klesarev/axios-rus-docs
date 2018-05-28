@@ -217,35 +217,36 @@ _пример: axios.get(params)_, где __*params*__ настройки
   // `method` тип http-запроса (get, post, delete и т.д.)
   method: 'get', // default
 
-  // `baseURL` will be prepended to `url` unless `url` is absolute.
-  // It can be convenient to set `baseURL` for an instance of axios to pass relative URLs
-  // to methods of that instance.
+  // `baseURL` будет добавлен к `url`, если `url` не будет абсолютным.
+  // это может быть удобным - установить `baseURL` для экземпляра axios для передачи относительных URL-адресов
+  // к методам этого экземпляра.
+  // установив единожды в настйроках 'baseURL' больше не нужно будет указывать полный адрес при запросе.
   baseURL: 'https://some-domain.com/api/',
 
-  // `transformRequest` allows changes to the request data before it is sent to the server
-  // This is only applicable for request methods 'PUT', 'POST', and 'PATCH'
-  // The last function in the array must return a string or an instance of Buffer, ArrayBuffer,
-  // FormData or Stream
-  // You may modify the headers object.
+  // `transformRequest` позволяет изменять данные запроса до его отправки на сервер
+  // Это применимо только для методов запроса «PUT», «POST» и «PATCH»
+  // Последняя функция в массиве должна возвращать строку или экземпляр типа Buffer, ArrayBuffer,
+  // FormData или Stream
+  // Также вы можете изменить объект заголовков.
   transformRequest: [function (data, headers) {
-    // Do whatever you want to transform the data
+    // тут пишем код для обработки данных...
 
     return data;
   }],
 
-  // `transformResponse` allows changes to the response data to be made before
-  // it is passed to then/catch
+  // `transformResponse` позволяет изменять данные ответа, (аналог вышеуказанному методу)
+  // но уже для запроса. редультат передается в then / catch
   transformResponse: [function (data) {
-    // Do whatever you want to transform the data
+    // тут пишем код для обработки данных...
 
     return data;
   }],
 
-  // `headers` are custom headers to be sent
+  // `headers` - указываем тут заголовки для запроса
   headers: {'X-Requested-With': 'XMLHttpRequest'},
 
-  // `params` are the URL parameters to be sent with the request
-  // Must be a plain object or a URLSearchParams object
+  // `params` - параметры URL, которые обычно указываются в адресе запроса
+  // параметры должны быть указаны в виде обычного объекта JS
   params: {
     ID: 12345
   },
