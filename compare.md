@@ -1,4 +1,4 @@
 
-## Сравнение с Fetch и XMLGttpRequest 
+## Сравнение с Fetch 
 
 text soon will be here...
