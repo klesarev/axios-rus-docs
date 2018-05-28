@@ -658,9 +658,9 @@ axios.get('/user?ID=12345');
 * [Contributing Guide](https://github.com/axios/axios/blob/master/CONTRIBUTING.md)
 * [Code of Conduct](https://github.com/axios/axios/blob/master/CODE_OF_CONDUCT.md)
 
-## Респект
+## Респект...
 
-axios is heavily inspired by the [$http service](https://docs.angularjs.org/api/ng/service/$http) provided in [Angular](https://angularjs.org/). Ultimately axios is an effort to provide a standalone `$http`-like service for use outside of Angular.
+Создатели Axios были вдохновлены[$ http service](https://docs.angularjs.org/api/ng/service/$http), представленным в [Ангуляре](https://angularjs.org/). В конечном счете, axios - это попытка дать пользователям службу, похожую на $http-like в Angular, за пределами этого фреймворка.
 
 ## Лицензия
 
