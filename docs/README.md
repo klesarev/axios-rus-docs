@@ -439,8 +439,6 @@ instance.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 
 ### Настройка приоритета
 
-Config will be merged with an order of precedence. The order is library defaults found in [lib/defaults.js](https://github.com/axios/axios/blob/master/lib/defaults.js#L28), then `defaults` property of the instance, and finally `config` argument for the request. The latter will take precedence over the former. Here's an example.
-
 Конфигурация будет объединена с порядком приоритета. Порядок - это значения по умолчанию в библиотеке, найденные в [lib/defaults.js](https://github.com/axios/axios/blob/master/lib/defaults.js#L28), затем свойство `defaults` экземпляра и наконец, аргумент `config` для запроса. Последний будет иметь приоритет над первым. Вот пример
 
 ```js
@@ -514,9 +512,7 @@ axios.get('/user/12345')
       // http.ClientRequest экземпляр в node.js
       console.log(error.request);
     } else {
-      // Something happened in setting up the request that triggered an Error
       // Что-то пошло не так, вернулась ошибка
-
       console.log('Error', error.message);
     }
     console.log(error.config);
@@ -538,9 +534,9 @@ axios.get('/user/12345', {
 
 Вы можете отменить запрос, используя *cancel token*.
 
-> The axios cancel token API is based on the withdrawn [cancelable promises proposal](https://github.com/tc39/proposal-cancelable-promises).
+> Token для отмены запросов в Axios базируется на [cancelable promises proposal](https://github.com/tc39/proposal-cancelable-promises).
 
-You can create a cancel token using the `CancelToken.source` factory as shown below:
+Вы можете создать token отмены с помощью фабричной функции `CancelToken.source`, как показано ниже:
 
 ```js
 const CancelToken = axios.CancelToken;
@@ -552,7 +548,7 @@ axios.get('/user/12345', {
   if (axios.isCancel(thrown)) {
     console.log('Request canceled', thrown.message);
   } else {
-    // handle error
+    // обработка ошибок
   }
 });
 
@@ -562,7 +558,7 @@ axios.post('/user/12345', {
   cancelToken: source.token
 })
 
-// cancel the request (the message parameter is optional)
+// отмена запроса (отображение сообщения можно настроить дополнительно)
 source.cancel('Operation canceled by the user.');
 ```
 
