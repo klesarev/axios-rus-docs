@@ -251,32 +251,32 @@ _пример: axios.get(params)_, где __*params*__ настройки
     ID: 12345
   },
 
-  // `paramsSerializer` is an optional function in charge of serializing `params`
-  // (e.g. https://www.npmjs.com/package/qs, http://api.jquery.com/jquery.param/)
+  // `paramsSerializer` - метод для сериализации(обработки) параметров
+  // (https://www.npmjs.com/package/qs, http://api.jquery.com/jquery.param/)
   paramsSerializer: function(params) {
     return Qs.stringify(params, {arrayFormat: 'brackets'})
   },
 
-  // `data` is the data to be sent as the request body
-  // Only applicable for request methods 'PUT', 'POST', and 'PATCH'
-  // When no `transformRequest` is set, must be of one of the following types:
-  // - string, plain object, ArrayBuffer, ArrayBufferView, URLSearchParams
-  // - Browser only: FormData, File, Blob
-  // - Node only: Stream, Buffer
+  // `data` - данные, которые должны быть отправлены в теле запроса
+  // Применяется только доя методов 'PUT', 'POST', and 'PATCH'
+  // Если параметр `transformRequest` не установлен, то тело запроса может быть следующих типов:
+  // - string, object, ArrayBuffer, ArrayBufferView, URLSearchParams
+  // - Для браузера: FormData, File, Blob
+  // - Для Node JS: Stream, Buffer
   data: {
     firstName: 'Fred'
   },
 
-  // `timeout` specifies the number of milliseconds before the request times out.
-  // If the request takes longer than `timeout`, the request will be aborted.
+  // `timeout` количество миллисекунд до истечения времени ожидания запроса.
+  // Если запрос занимает больше времени, чем `timeout`, он будет прерван.
   timeout: 1000,
 
-  // `withCredentials` indicates whether or not cross-site Access-Control requests
-  // should be made using credentials
+  // `withCredentials` - отображает статус CORS запросов - то есть должны ли запрошиваться 
+  // необходимые парметры или нет. Подробнее тут - https://developer.mozilla.org/ru/docs/Web/HTTP/CORS
   withCredentials: false, // default
 
-  // `adapter` allows custom handling of requests which makes testing easier.
-  // Return a promise and supply a valid response (see lib/adapters/README.md).
+  // `adapter` - позволяет делать доп.настройку запросов, что облегчает тестирование.
+  // Возвращает Promis и валидный ответ (подробнее в lib/adapters/README.md).
   adapter: function (config) {
     /* ... */
   },
@@ -284,36 +284,45 @@ _пример: axios.get(params)_, где __*params*__ настройки
   // `auth` indicates that HTTP Basic auth should be used, and supplies credentials.
   // This will set an `Authorization` header, overwriting any existing
   // `Authorization` custom headers you have set using `headers`.
+
+  
+  // `auth` указывает, необходимо ли использовать HTTP Basic auth и предоставлять учетные данные.
+  // ВНИМАНИЕ! Этот параметр установит в запрос заголовок `Authorization`, перезаписав все существующие
+  // пользовательские заголовки `Authorization`, которые вы задали в настройках с помощью параметра - 'headers`
   auth: {
     username: 'janedoe',
     password: 's00pers3cret'
   },
 
-  // `responseType` indicates the type of data that the server will respond with
-  // options are 'arraybuffer', 'blob', 'document', 'json', 'text', 'stream'
-  responseType: 'json', // default
+  // `responseType` указывает тип данных, которыми ответи сервер
+  // варианты: «arraybuffer», «blob», «document», «json», «text», «stream»,
+  responseType: 'json', // по умолчанию
 
-  // `responseEncoding` indicates encoding to use for decoding responses
-  // Note: Ignored for `responseType` of 'stream' or client-side requests
+  // `responseEncoding` указывает какую кодироваку использовать для обрабтки ответов
+  // Примечание: Игнорируется для опции `responseType` - 'stream'(поток) или запросов на стороне клиента,
+  // что вполне логично, так как потоковые данные и должны так передаваться
   responseEncoding: 'utf8', // default
 
   // `xsrfCookieName` is the name of the cookie to use as a value for xsrf token
+  //`xsrfCookieName` - имя cookie для использования в качестве значения для токена xsrf
   xsrfCookieName: 'XSRF-TOKEN', // default
 
-  // `xsrfHeaderName` is the name of the http header that carries the xsrf token value
+  // `xsrfHeaderName` http-заголовко для использования в качестве значения для токена xsrf
   xsrfHeaderName: 'X-XSRF-TOKEN', // default
 
-  // `onUploadProgress` allows handling of progress events for uploads
+  // `onUploadProgress` позволяет обрабатывать события прогресса для загрузки данных
+  // например тут можно "повесить" индикатор загружки данных на сервер
   onUploadProgress: function (progressEvent) {
-    // Do whatever you want with the native progress event
+    // делаем тут что угодно...
   },
 
-  // `onDownloadProgress` allows handling of progress events for downloads
+  // `onDownloadProgress` позволяет обрабатывать события прогресса скачивания данных
+  // как варианрт - разместить здесь индикачию размера скачиванемого файла
   onDownloadProgress: function (progressEvent) {
-    // Do whatever you want with the native progress event
+    // делаем тут что угодно...
   },
 
-  // `maxContentLength` defines the max size of the http response content in bytes allowed
+  // `maxContentLength` определяет максимальный размер содержимого ответа HTTP в байтах
   maxContentLength: 2000,
 
   // `validateStatus` defines whether to resolve or reject the promise for a given
