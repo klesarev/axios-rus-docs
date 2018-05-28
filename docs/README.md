@@ -652,11 +652,11 @@ axios.get('/user?ID=12345');
 
 ## Дополнительная ифнормация
 
-* [Changelog](https://github.com/axios/axios/blob/master/CHANGELOG.md)
-* [Upgrade Guide](https://github.com/axios/axios/blob/master/UPGRADE_GUIDE.md)
-* [Ecosystem](https://github.com/axios/axios/blob/master/ECOSYSTEM.md)
-* [Contributing Guide](https://github.com/axios/axios/blob/master/CONTRIBUTING.md)
-* [Code of Conduct](https://github.com/axios/axios/blob/master/CODE_OF_CONDUCT.md)
+* [Изменения](https://github.com/axios/axios/blob/master/CHANGELOG.md)
+* [Руководство по обновлению](https://github.com/axios/axios/blob/master/UPGRADE_GUIDE.md)
+* [Экосистема](https://github.com/axios/axios/blob/master/ECOSYSTEM.md)
+* [Руководство для участников](https://github.com/axios/axios/blob/master/CONTRIBUTING.md)
+* [Кодекс поведения](https://github.com/axios/axios/blob/master/CODE_OF_CONDUCT.md)
 
 ## Респект...
 
