@@ -19,7 +19,7 @@
 - Преобразование получаемых и принимаемых данных
 - Отмена запроса
 - Автоматическое преобразование JSON
-- Защита на стороне клиента от от [CSRF-атак](https://learn.javascript.ru/csrf)
+- Защита на стороне клиента от [CSRF-атак](https://learn.javascript.ru/csrf)
 
 
 ## Browser Support
@@ -86,13 +86,10 @@ async function getUser() {
 }
 ```
 
-```FOX >```: async/await - часть нового стандарта ECMAScript 2017. Этот функционал не поддерживается IE и некоторыми старыми браузерами. 
-             Почитать на русском можно найти [здесь](https://habr.com/company/ruvds/blog/326074/)
-             Также можно использовать *BABEL* для транспиляции(перевода) кода к стандарту ES5, который имеет практически полную совместимость с браузерами
 
-
-> **NOTE:** `async/await` is part of ECMAScript 2017 and is not supported in Internet
-> Explorer and older browsers, so use with caution.
+> **```FOX```:** `async/await` - часть нового стандарта ECMAScript 2017. Этот функционал не поддерживается IE и некоторыми старыми браузерами.
+> Почитать на русском можно [здесь](https://habr.com/company/ruvds/blog/326074/)
+> Также можно использовать *BABEL* для транспиляции(перевода) кода к стандарту ES5, который имеет практически полную совместимость с браузерами
 
 ### POST - запрос
 ```javascript
@@ -126,12 +123,9 @@ axios.all([getUserAccount(), getUserPermissions()])
 
 ## Axios API
 
-Requests can be made by passing the relevant config to `axios`.
-
-##### axios(config)
-
-```js
-// Send a POST request
+Запросы могут быть выполнены путем передачи параметров/настроек в ```axios(config)```
+```javascript
+// отправка POST запроса
 axios({
   method: 'post',
   url: '/user/12345',
@@ -141,9 +135,9 @@ axios({
   }
 });
 ```
-
-```js
-// GET request for remote image
+```javascript
+// отправка GET запроса для получения изображения
+// со стороннего сервера
 axios({
   method:'get',
   url:'http://bit.ly/2mTM3nY',
@@ -153,17 +147,16 @@ axios({
   response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
 });
 ```
-
-##### axios(url[, config])
-
-```js
-// Send a GET request (default method)
+__axios(url[, config])__
+```javascript
+// отправка GET запроса с параметрами по умолчанию
 axios('/user/12345');
 ```
 
-### Request method aliases
 
-For convenience aliases have been provided for all supported request methods.
+### Встроенные методы HTTP запросов
+
+Для Вашего удобства были созданы методы для всех поддерживаемых типов запросов.
 
 ##### axios.request(config)
 ##### axios.get(url[, config])
@@ -174,29 +167,27 @@ For convenience aliases have been provided for all supported request methods.
 ##### axios.put(url[, data[, config]])
 ##### axios.patch(url[, data[, config]])
 
-###### NOTE
-When using the alias methods `url`, `method`, and `data` properties don't need to be specified in config.
+**```FOX```**
+Используя данные методы, Вам необязательно указывать свойства ```method``` и ```data``` в настройках.
 
-### Concurrency
-
-Helper functions for dealing with concurrent requests.
+### Мультизапросы
+Вспомогательные функции для того чтобы использовать несколько запросов одновременно
 
 ##### axios.all(iterable)
 ##### axios.spread(callback)
 
-### Creating an instance
 
-You can create a new instance of axios with a custom config.
+### Cоздание нового экземпляра Axios
+Вы можете создать новый экземпляр(образец) **Axios** cо своими настройками
 
 ##### axios.create([config])
-
-```js
+```javascript
 const instance = axios.create({
   baseURL: 'https://some-domain.com/api/',
   timeout: 1000,
   headers: {'X-Custom-Header': 'foobar'}
 });
-```
+``` 
 
 ### Instance methods
 
