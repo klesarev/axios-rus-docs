@@ -4,7 +4,7 @@
 Здесь вы найдете перевод официальной документации по Axios. Процесс перевода можно остлеживать здесь, либо по коммитам.
 
 В переводе автор(авторы) будут по возможности делать свои пометки. Это будет отмечено как ```AUTHOR_NAME``` - где *AUTHOR_NAME* - имя автора. В этих примечаниях будет полезная информация: ссылки на скачивание, пояснения, дополения и прочая полезная инф-я. 
-Напрмиер: ```__FOX__```: *подробнее про async/await* читайте [тут](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/async_function)
+Напрмер: ```__FOX__```: *подробнее про async/await* читайте [тут](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/async_function)
 
 <br />
 ### Прогресс выполнения

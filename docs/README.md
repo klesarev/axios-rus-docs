@@ -7,18 +7,20 @@
 [![gitter chat](https://img.shields.io/gitter/room/mzabriskie/axios.svg?style=flat-square)](https://gitter.im/mzabriskie/axios)
 [![code helpers](https://www.codetriage.com/axios/axios/badges/users.svg)](https://www.codetriage.com/axios/axios)
 
-Promise based HTTP client for the browser and node.js
 
-## Features
+Клиент для HTTP-запросов для браузера и Node.JS, построенный на [**Promise**](https://learn.javascript.ru/promise)
 
-- Make [XMLHttpRequests](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) from the browser
-- Make [http](http://nodejs.org/api/http.html) requests from node.js
-- Supports the [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) API
-- Intercept request and response
-- Transform request and response data
-- Cancel requests
-- Automatic transforms for JSON data
-- Client side support for protecting against [XSRF](http://en.wikipedia.org/wiki/Cross-site_request_forgery)
+
+## Отличительные особенности
+- Отправка [XMLHttpRequests](https://developer.mozilla.org/ru/docs/Web/API/XMLHttpRequest) из браузера
+- HTTP запросы из [NodeJS](http://nodejs.org/api/http.html)
+- Полная поддержка [Promise](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise) API
+- Перехват запросов и ответов
+- Преобразование получаемых и принимаемых данных
+- Отмена запроса
+- Автоматическое преобразование JSON
+- Защита на стороне клиента от от [CSRF-атак](https://learn.javascript.ru/csrf)
+
 
 ## Browser Support
 
@@ -28,32 +30,28 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 
 [![Browser Matrix](https://saucelabs.com/open_sauce/build_matrix/axios.svg)](https://saucelabs.com/u/axios)
 
-## Installing
 
-Using npm:
 
-```bash
+## Установка
+
+_посредством __npm__ (у вас должен быть установлен пакет Node JS [ссылка](https://nodejs.org/en/) )_
+```js
 $ npm install axios
 ```
-
-Using bower:
-
-```bash
+*c помощью менеджера пакетов bower*
+```js
 $ bower install axios
 ```
-
-Using cdn:
-
+*используя ссылку на CDN, которую можно разместить непосредственно на странице*
 ```html
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 ```
 
-## Example
-
-Performing a `GET` request
-
-```js
-// Make a request for a user with a given ID
+## Примеры использования
+### GET - запрос
+```javascript
+// делаем GET запрос чтобы получить пользователя (user) 
+// с указанным параметром ID = 12345
 axios.get('/user?ID=12345')
   .then(function (response) {
     console.log(response);
@@ -62,7 +60,8 @@ axios.get('/user?ID=12345')
     console.log(error);
   });
 
-// Optionally the request above could also be done as
+// так же, параметры можно передавать отдельно, в виде объекта
+// схема ('url', params), где params объект
 axios.get('/user', {
     params: {
       ID: 12345
@@ -75,7 +74,8 @@ axios.get('/user', {
     console.log(error);
   });
 
-// Want to use async/await? Add the `async` keyword to your outer function/method.
+// Хотите использовать async/await? Не проблема! Добавьте "async" - перед вашим методом/функуцей,
+// и await перед самими запросом.
 async function getUser() {
   try {
     const response = await axios.get('/user?ID=12345');
@@ -86,27 +86,30 @@ async function getUser() {
 }
 ```
 
+```FOX >```: async/await - часть нового стандарта ECMAScript 2017. Этот функционал не поддерживается IE и некоторыми старыми браузерами. 
+             Почитать на русском можно найти [здесь](https://habr.com/company/ruvds/blog/326074/)
+             Также можно использовать *BABEL* для транспиляции(перевода) кода к стандарту ES5, который имеет практически полную совместимость с браузерами
+
+
 > **NOTE:** `async/await` is part of ECMAScript 2017 and is not supported in Internet
 > Explorer and older browsers, so use with caution.
 
-Performing a `POST` request
-
-```js
+### POST - запрос
+```javascript
 axios.post('/user', {
     firstName: 'Fred',
     lastName: 'Flintstone'
-  })
-  .then(function (response) {
+})
+.then(function (response) {
     console.log(response);
-  })
-  .catch(function (error) {
+})
+.catch(function (error) {
     console.log(error);
-  });
+});
 ```
 
-Performing multiple concurrent requests
-
-```js
+### Несколько запросов одновременно
+```javascript
 function getUserAccount() {
   return axios.get('/user/12345');
 }
@@ -121,7 +124,7 @@ axios.all([getUserAccount(), getUserPermissions()])
   }));
 ```
 
-## axios API
+## Axios API
 
 Requests can be made by passing the relevant config to `axios`.
 
