@@ -444,9 +444,6 @@ Config will be merged with an order of precedence. The order is library defaults
 Конфигурация будет объединена с порядком приоритета. Порядок - это значения по умолчанию в библиотеке, найденные в [lib/defaults.js](https://github.com/axios/axios/blob/master/lib/defaults.js#L28), затем свойство `defaults` экземпляра и наконец, аргумент `config` для запроса. Последний будет иметь приоритет над первым. Вот пример
 
 ```js
-// Create an instance using the config defaults provided by the library
-// At this point the timeout config value is `0` as is the default for the library
-
 // Создаем образец используя настйроки по умолчанию предоставленные библиотекой
 // На этом этапе значение конфигурации тайм-аута равно `0`, как по умолчанию для библиотеки
 
@@ -486,7 +483,6 @@ axios.interceptors.response.use(function (response) {
   });
 ```
 
-If you may need to remove an interceptor later you can.
 Если позднее Вам нужно будет удалить перехватчик, вы можете сделать следующее:
 
 ```js
@@ -494,7 +490,6 @@ const myInterceptor = axios.interceptors.request.use(function () {/*...*/});
 axios.interceptors.request.eject(myInterceptor);
 ```
 
-You can add interceptors to a custom instance of axios.
 Также, Вы можете добавлять перехватчики в свой экземпляр axios
 
 ```js
