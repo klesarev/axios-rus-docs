@@ -638,13 +638,18 @@ You can also use the [`qs`](https://github.com/ljharb/qs) library.
 
 Until axios reaches a `1.0` release, breaking changes will be released with a new minor version. For example `0.5.1`, and `0.5.4` will have the same API, but `0.6.0` will have breaking changes.
 
-## Promises
+## Promises / Промисы
 
-axios depends on a native ES6 Promise implementation to be [supported](http://caniuse.com/promises).
-If your environment doesn't support ES6 Promises, you can [polyfill](https://github.com/jakearchibald/es6-promise).
+Работа axios напрямую зависит от поддержки Promise. Проверить подержку клиентами(браузерами) можно на сайте [can i use](http://caniuse.com/promises).
+Если Promise не поддерживаются, можно использовать [полифилл/polyfill](https://github.com/jakearchibald/es6-promise).
+Более подробно почитать о Promise на русском можно тут:
+- [Learn JS](https://learn.javascript.ru/promise)
+- [Руководство](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+- [Промисы на примерах из жизни](https://medium.com/web-standards/promises-explained-caee4c9b86d0)
+- [Promise для новичков](https://habr.com/company/zerotech/blog/317256/)
 
 ## TypeScript
-axios includes [TypeScript](http://typescriptlang.org) definitions.
+Axios и [TypeScript](http://typescriptlang.org) работают отлично!
 ```typescript
 import axios from 'axios';
 axios.get('/user?ID=12345');
