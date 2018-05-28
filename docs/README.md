@@ -411,7 +411,7 @@ axios.get('/user/12345')
   });
 ```
 
-При использовании `catch` или передачи[rejection callback](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) в качестве 2-го параметра `then`, ответ будет доступен через объект `error`, как описано в разделе *Обработка ошибок*
+При использовании `catch` или передачи [rejection callback](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise/then)(callback ядл отмены) в качестве 2-го параметра `then`, ответ будет доступен через объект `error`, как описано в разделе *Обработка ошибок*
 
 ## Настройки по умолчанию
 
