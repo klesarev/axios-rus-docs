@@ -411,13 +411,13 @@ axios.get('/user/12345')
   });
 ```
 
-When using `catch`, or passing a [rejection callback](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) as second parameter of `then`, the response will be available through the `error` object as explained in the [Handling Errors](#handling-errors) section.
+При использовании `catch` или передачи[rejection callback](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) в качестве 2-го параметра `then`, ответ будет доступен через объект `error`, как описано в разделе *Обработка ошибок*
 
-## Config Defaults
+## Настройки по умолчанию
 
-You can specify config defaults that will be applied to every request.
+Вы можете указать настройки по умолчанию, которые будут применяться к каждому запросу.
 
-### Global axios defaults
+### Глобальные переменные в Axios
 
 ```js
 axios.defaults.baseURL = 'https://api.example.com';
@@ -425,62 +425,69 @@ axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 ```
 
-### Custom instance defaults
+### Пользовательские настройки для экземплара
 
 ```js
-// Set config defaults when creating the instance
+// Установка дефолтных настроек при содании экземпляра
 const instance = axios.create({
   baseURL: 'https://api.example.com'
 });
 
-// Alter defaults after instance has been created
+// Устанавливаем значения по умолчанию после создания экземпляра
 instance.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 ```
 
-### Config order of precedence
+### Настройка приоритета
 
 Config will be merged with an order of precedence. The order is library defaults found in [lib/defaults.js](https://github.com/axios/axios/blob/master/lib/defaults.js#L28), then `defaults` property of the instance, and finally `config` argument for the request. The latter will take precedence over the former. Here's an example.
+
+Конфигурация будет объединена с порядком приоритета. Порядок - это значения по умолчанию в библиотеке, найденные в [lib/defaults.js](https://github.com/axios/axios/blob/master/lib/defaults.js#L28), затем свойство `defaults` экземпляра и наконец, аргумент `config` для запроса. Последний будет иметь приоритет над первым. Вот пример
 
 ```js
 // Create an instance using the config defaults provided by the library
 // At this point the timeout config value is `0` as is the default for the library
+
+// Создаем образец используя настйроки по умолчанию предоставленные библиотекой
+// На этом этапе значение конфигурации тайм-аута равно `0`, как по умолчанию для библиотеки
+
 const instance = axios.create();
 
-// Override timeout default for the library
-// Now all requests using this instance will wait 2.5 seconds before timing out
+// Завершение таймаута по умолчанию для библиотеки
+// Теперь все запросы с использованием этого экземпляра будут ждать 2,5 секунды до истечения времени ожидания
 instance.defaults.timeout = 2500;
 
-// Override timeout for this request as it's known to take a long time
+// Завершение таймаута для этого запроса, поскольку, он занимает много времени
 instance.get('/longRequest', {
   timeout: 5000
 });
 ```
 
-## Interceptors
+## Перехватчики
 
-You can intercept requests or responses before they are handled by `then` or `catch`.
+Вы можете перехватить запросы или ответы непосредственно перед тем, как они будут обработаны `then` or `catch`.
 
 ```js
-// Add a request interceptor
+// Добавление перехвата запроса
 axios.interceptors.request.use(function (config) {
-    // Do something before request is sent
+    // делаем что угодно перед запросом
     return config;
   }, function (error) {
-    // Do something with request error
+    // обрабатываем ошибку
     return Promise.reject(error);
   });
 
-// Add a response interceptor
+// Добавляем перехватчик ответа
 axios.interceptors.response.use(function (response) {
-    // Do something with response data
+    // Делаем что угодно с поступившими данными
     return response;
   }, function (error) {
-    // Do something with response error
+    // Обрабатываем ошибку
     return Promise.reject(error);
   });
 ```
 
 If you may need to remove an interceptor later you can.
+Если позднее Вам нужно будет удалить перехватчик, вы можете сделать следующее:
 
 ```js
 const myInterceptor = axios.interceptors.request.use(function () {/*...*/});
@@ -488,49 +495,53 @@ axios.interceptors.request.eject(myInterceptor);
 ```
 
 You can add interceptors to a custom instance of axios.
+Также, Вы можете добавлять перехватчики в свой экземпляр axios
 
 ```js
 const instance = axios.create();
 instance.interceptors.request.use(function () {/*...*/});
 ```
 
-## Handling Errors
+## Обработка ошибок
 
 ```js
 axios.get('/user/12345')
   .catch(function (error) {
     if (error.response) {
-      // The request was made and the server responded with a status code
-      // that falls out of the range of 2xx
+      // Запрос выполнен, и сервер отправил Вам статус код
+      // код выпададет из диапазона 2хх (ошибка)
       console.log(error.response.data);
       console.log(error.response.status);
       console.log(error.response.headers);
     } else if (error.request) {
-      // The request was made but no response was received
-      // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-      // http.ClientRequest in node.js
+      // Запрос был сделан, но ответ не получен
+      // `error.request` - экземпляр XMLHttpRequest в браузере,
+      // http.ClientRequest экземпляр в node.js
       console.log(error.request);
     } else {
       // Something happened in setting up the request that triggered an Error
+      // Что-то пошло не так, вернулась ошибка
+
       console.log('Error', error.message);
     }
     console.log(error.config);
   });
 ```
 
-You can define a custom HTTP status code error range using the `validateStatus` config option.
+Вы можете определить свой диапазон ошибок кода состояния HTTP, используя опцию конфигурации `validateStatus`.
+Например, можно настроить так, что все ошибки с кодом в диапазоне 2хх-3хх будут игонирироваться. В реальности это конечно не пригодится, но возможность такая есть
 
 ```js
 axios.get('/user/12345', {
   validateStatus: function (status) {
-    return status < 500; // Reject only if the status code is greater than or equal to 500
+    return status < 500; // остановить запрос, только если код больше или равен 500
   }
 })
 ```
 
-## Cancellation
+## Отмена запроса
 
-You can cancel a request using a *cancel token*.
+Вы можете отменить запрос, используя *cancel token*.
 
 > The axios cancel token API is based on the withdrawn [cancelable promises proposal](https://github.com/tc39/proposal-cancelable-promises).
 
@@ -644,7 +655,7 @@ import axios from 'axios';
 axios.get('/user?ID=12345');
 ```
 
-## Resources
+## Дополнительная ифнормация
 
 * [Changelog](https://github.com/axios/axios/blob/master/CHANGELOG.md)
 * [Upgrade Guide](https://github.com/axios/axios/blob/master/UPGRADE_GUIDE.md)
@@ -652,10 +663,10 @@ axios.get('/user?ID=12345');
 * [Contributing Guide](https://github.com/axios/axios/blob/master/CONTRIBUTING.md)
 * [Code of Conduct](https://github.com/axios/axios/blob/master/CODE_OF_CONDUCT.md)
 
-## Credits
+## Респект
 
 axios is heavily inspired by the [$http service](https://docs.angularjs.org/api/ng/service/$http) provided in [Angular](https://angularjs.org/). Ultimately axios is an effort to provide a standalone `$http`-like service for use outside of Angular.
 
-## License
+## Лицензия
 
 MIT
