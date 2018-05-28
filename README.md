@@ -1,5 +1,5 @@
 
-![axios-rus-docs](https://pp.userapi.com/c846018/v846018578/63264/3m3l7ptFtJU.jpg)
+![axios-rus-docs](/assets/img/axios.jpg)
 
 ## Предисловие
 
