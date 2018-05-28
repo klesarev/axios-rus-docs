@@ -281,11 +281,6 @@ _пример: axios.get(params)_, где __*params*__ настройки
     /* ... */
   },
 
-  // `auth` indicates that HTTP Basic auth should be used, and supplies credentials.
-  // This will set an `Authorization` header, overwriting any existing
-  // `Authorization` custom headers you have set using `headers`.
-
-  
   // `auth` указывает, необходимо ли использовать HTTP Basic auth и предоставлять учетные данные.
   // ВНИМАНИЕ! Этот параметр установит в запрос заголовок `Authorization`, перезаписав все существующие
   // пользовательские заголовки `Authorization`, которые вы задали в настройках с помощью параметра - 'headers`
@@ -303,7 +298,6 @@ _пример: axios.get(params)_, где __*params*__ настройки
   // что вполне логично, так как потоковые данные и должны так передаваться
   responseEncoding: 'utf8', // default
 
-  // `xsrfCookieName` is the name of the cookie to use as a value for xsrf token
   //`xsrfCookieName` - имя cookie для использования в качестве значения для токена xsrf
   xsrfCookieName: 'XSRF-TOKEN', // default
 
@@ -325,27 +319,30 @@ _пример: axios.get(params)_, где __*params*__ настройки
   // `maxContentLength` определяет максимальный размер содержимого ответа HTTP в байтах
   maxContentLength: 2000,
 
-  // `validateStatus` defines whether to resolve or reject the promise for a given
-  // HTTP response status code. If `validateStatus` returns `true` (or is set to `null`
-  // or `undefined`), the promise will be resolved; otherwise, the promise will be
-  // rejected.
+  // `validateStatus` определяет, разрешать или отклонять Prоmise для данного
+  // HTTP-ответа. Если `validateStatus` возвращает` true` (или установлен в `null`
+  // или `undefined`), Primise будет выполнен; в противном случае отклонен
   validateStatus: function (status) {
     return status >= 200 && status < 300; // default
   },
 
-  // `maxRedirects` defines the maximum number of redirects to follow in node.js.
-  // If set to 0, no redirects will be followed.
+  // `maxRedirects` - максимальное количество редиректов в node.js.
+  // если значение устанвлено в "0" - редиректа не будет
   maxRedirects: 5, // default
 
-  // `socketPath` defines a UNIX Socket to be used in node.js.
-  // e.g. '/var/run/docker.sock' to send requests to the docker daemon.
-  // Only either `socketPath` or `proxy` can be specified.
-  // If both are specified, `socketPath` is used.
+  // `socketPath` определяет UNIX Socket для использования в node.js.
+  // например. '/var/run/docker.sock' для отправки запросов демону docker.
+  // Можно указать только «socketPath» или «proxy».
+  // Если оба указаны, используется `socketPath`.
   socketPath: null, // default
 
   // `httpAgent` and `httpsAgent` define a custom agent to be used when performing http
   // and https requests, respectively, in node.js. This allows options to be added like
   // `keepAlive` that are not enabled by default.
+
+  // `httpAgent` и` httpsAgent` - установка своего `httpAgent`, который будет использоваться при выполнении http
+  // и https-запросов, соответственно, в node.js. 
+  // Это позволяет добавлять опции (например `keepAlive`), которые по умолчанию не включены.
   httpAgent: new http.Agent({ keepAlive: true }),
   httpsAgent: new https.Agent({ keepAlive: true }),
 
@@ -355,6 +352,13 @@ _пример: axios.get(params)_, где __*params*__ настройки
   // supplies credentials.
   // This will set an `Proxy-Authorization` header, overwriting any existing
   // `Proxy-Authorization` custom headers you have set using `headers`.
+
+  // 'proxy' определяет имя хоста и порт прокси-сервера
+  // Используйте `false` для отключения прокси при запросах, игнорируя глобальные среды.
+  // `auth` указывает, что для подключения к прокси следует использовать HTTP Basic auth и
+  // предоставляет учетные данные.
+  // Эта опция установит заголовок `Proxy-Authorization`, переписывая любые существующие
+  // `Proxy-Authorization` заголовки, которые вы задали в` headers`.
   proxy: {
     host: '127.0.0.1',
     port: 9000,
@@ -366,14 +370,17 @@ _пример: axios.get(params)_, где __*params*__ настройки
 
   // `cancelToken` specifies a cancel token that can be used to cancel the request
   // (see Cancellation section below for details)
+
+  // `cancelToken` указывает токен, который может использоваться для отмены запроса
   cancelToken: new CancelToken(function (cancel) {
   })
 }
 ```
 
-## Response Schema
 
-The response for a request contains the following information.
+## Схема ответа
+
+Ответ на запрос содержит следующие параметры:
 
 ```js
 {
