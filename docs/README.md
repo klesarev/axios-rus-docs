@@ -117,7 +117,7 @@ function getUserPermissions() {
 
 axios.all([getUserAccount(), getUserPermissions()])
   .then(axios.spread(function (acct, perms) {
-    // Both requests are now complete
+    // Оба запроса завершены
   }));
 ```
 
@@ -428,7 +428,7 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 ### Пользовательские настройки для экземплара
 
 ```js
-// Установка дефолтных настроек при содании экземпляра
+// Установка дефолтных настроек при создании экземпляра
 const instance = axios.create({
   baseURL: 'https://api.example.com'
 });
@@ -442,7 +442,7 @@ instance.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 Конфигурация будет объединена с порядком приоритета. Порядок - это значения по умолчанию в библиотеке, найденные в [lib/defaults.js](https://github.com/axios/axios/blob/master/lib/defaults.js#L28), затем свойство `defaults` экземпляра и наконец, аргумент `config` для запроса. Последний будет иметь приоритет над первым. Вот пример
 
 ```js
-// Создаем образец используя настйроки по умолчанию предоставленные библиотекой
+// Создаем образец используя настройки по умолчанию предоставленные библиотекой
 // На этом этапе значение конфигурации тайм-аута равно `0`, как по умолчанию для библиотеки
 
 const instance = axios.create();
@@ -459,7 +459,7 @@ instance.get('/longRequest', {
 
 ## Перехватчики
 
-Вы можете перехватить запросы или ответы непосредственно перед тем, как они будут обработаны `then` or `catch`.
+Вы можете перехватить запросы или ответы непосредственно перед тем, как они будут обработаны `then` или `catch`.
 
 ```js
 // Добавление перехвата запроса
@@ -481,7 +481,7 @@ axios.interceptors.response.use(function (response) {
   });
 ```
 
-Если позднее Вам нужно будет удалить перехватчик, вы можете сделать следующее:
+Если позднее Вам нужно будет удалить перехватчик, Вы можете сделать следующее:
 
 ```js
 const myInterceptor = axios.interceptors.request.use(function () {/*...*/});
@@ -584,11 +584,11 @@ cancel();
 
 ## Использование формата application/x-www-form-urlencoded
 
-По умолчанию axios переводит объекты JavaScript в `JSON`. Чтобы отправить данные в формате `application/x-www-form-urlencoded`, вы можете использовать один из следующих вариантов.
+По умолчанию axios переводит объекты JavaScript в `JSON`. Чтобы отправить данные в формате `application/x-www-form-urlencoded`, Вы можете использовать один из следующих вариантов.
 
 ### Браузер
 
-В браузере вы можете испольприменить API [`URLSearchParams`](https://developer.mozilla.org/ru/docs/Web/API/URLSearchParams) следующим образом:
+В браузере Вы можете испольприменить API [`URLSearchParams`](https://developer.mozilla.org/ru/docs/Web/API/URLSearchParams) следующим образом:
 
 ```js
 const params = new URLSearchParams();
@@ -622,7 +622,7 @@ axios(options);
 
 ### Node JS
 
-В Node JS вы можете использовать модуль [`querystring`](https://nodejs.org/api/querystring.html) так:
+В Node JS Вы можете использовать модуль [`querystring`](https://nodejs.org/api/querystring.html) так:
 
 ```js
 const querystring = require('querystring');
