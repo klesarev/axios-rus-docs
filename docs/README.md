@@ -50,8 +50,8 @@ $ bower install axios
 ## Примеры использования
 ### GET - запрос
 ```javascript
-/* делаем GET запрос чтобы получить пользователя (user) 
-*/ с указанным параметром ID = 12345
+// делаем GET запрос чтобы получить пользователя (user) 
+// с указанным параметром ID = 12345
 axios.get('/user?ID=12345')
   .then(function (response) {
     console.log(response);
@@ -92,6 +92,7 @@ async function getUser() {
 > Также можно использовать [*BABEL*](https://babeljs.io/) для транспиляции(перевода) кода к стандарту ES5, который имеет практически полную совместимость с браузерами
 
 ### POST - запрос
+**```FOX```** обраите внимание, что зачастую в POST запросе требуется что-то отправлять: объект с параметрами, пустой объект или что-либо еще.
 ```javascript
 axios.post('/user', {
     firstName: 'Fred',
@@ -103,6 +104,15 @@ axios.post('/user', {
 .catch(function (error) {
     console.log(error);
 });
+```
+**```FOX```** в стандарте ES6 вышеуказанный код выглядел бы так(применим стрелочную функцию). Согласитесь, так выглядит лаконичнее. Более детально о новых фишках в ES6 можно прочесть тут - https://learn.javascript.ru/es-modern
+```javascript
+axios.post('/user', {
+    firstName: 'Fred',
+    lastName: 'Flintstone'
+})
+.then(response => console.log(response));
+.catch(error => console.log(error));
 ```
 
 ### Несколько запросов одновременно
@@ -118,12 +128,13 @@ function getUserPermissions() {
 axios.all([getUserAccount(), getUserPermissions()])
   .then(axios.spread(function (acct, perms) {
     // Оба запроса завершены
-  }));
+}));
 ```
 
 ## Axios API
 
-Запросы могут быть выполнены путем передачи параметров/настроек в ```axios(config)```
+**```FOX```** Запросы могут быть выполнены путем передачи параметров/настроек в ```axios(config)```. То есть вместо стандартнйо схемы ```axios.get('http://yourlink.com/api', parameters)``` вы указываете каждый параметр(ссылка, обхект для пердачи, метод и т.д.) вручную. Иногда это может быть удобно, но если Вам нужно просто отправить небольшой запрос, воспользуйтесь стандартной схемой(см. раздел GET-запрос)
+
 ```javascript
 // отправка POST запроса
 axios({
