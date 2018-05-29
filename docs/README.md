@@ -105,7 +105,7 @@ axios.post('/user', {
     console.log(error);
 });
 ```
-**```FOX```** в стандарте ES6 вышеуказанный код выглядел бы так(применим стрелочную функцию). Согласитесь, так выглядит лаконичнее. Более детально о новых фишках в ES6 можно прочесть тут - https://learn.javascript.ru/es-modern
+**```FOX```** в стандарте ES6 вышеуказанный код выглядел бы так(применим стрелочную функцию). 
 ```javascript
 axios.post('/user', {
     firstName: 'Fred',
@@ -114,6 +114,8 @@ axios.post('/user', {
 .then(response => console.log(response));
 .catch(error => console.log(error));
 ```
+**```FOX```** Согласитесь, так выглядит лаконичнее. Более детально о новых фишках в ES6 можно прочесть тут - https://learn.javascript.ru/es-modern
+
 
 ### Несколько запросов одновременно
 ```javascript
