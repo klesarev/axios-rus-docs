@@ -36,9 +36,5 @@ npm init
 ```
 npm install babel-preset-env babel-preset-stage-2 --save-dev
 ```
-```
-npm install axios
-```
 1. инициализирует наш проект и создаст нам файл ```package.json``` с его описанием
 2. установит babel вместе c необходимыми настройками
-3. установит библиотеку axios
