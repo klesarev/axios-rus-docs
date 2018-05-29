@@ -34,7 +34,7 @@
 npm init
 ```
 ```
-npm install babel-preset-env babel-preset-stage-2 --save-dev
+npm install --save-dev babel-core babel-cli babel-preset-env babel-preset-stage-2
 ```
 1. инициализирует наш проект и создаст нам файл ```package.json``` с его описанием
 2. установит babel вместе c необходимыми настройками
