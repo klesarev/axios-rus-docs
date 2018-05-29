@@ -276,7 +276,7 @@ _пример: axios.get(params)_, где __*params*__ настройки
   withCredentials: false, // default
 
   // `adapter` - позволяет делать доп.настройку запросов, что облегчает тестирование.
-  // Возвращает Promis и валидный ответ (подробнее в lib/adapters/README.md).
+  // Возвращает Promise и валидный ответ (подробнее в lib/adapters/README.md).
   adapter: function (config) {
     /* ... */
   },
@@ -290,11 +290,11 @@ _пример: axios.get(params)_, где __*params*__ настройки
     password: 's00pers3cret'
   },
 
-  // `responseType` указывает тип данных, которыми ответи сервер
+  // `responseType` указывает тип данных, которыми ответит сервер
   // варианты: «arraybuffer», «blob», «document», «json», «text», «stream»,
   responseType: 'json', // по умолчанию
 
-  // `responseEncoding` указывает какую кодироваку использовать для обрабтки ответов
+  // `responseEncoding` указывает какую кодировку использовать для обработки ответов
   // Примечание: Игнорируется для опции `responseType` - 'stream'(поток) или запросов на стороне клиента,
   // что вполне логично, так как потоковые данные и должны так передаваться
   responseEncoding: 'utf8', // default
@@ -312,7 +312,7 @@ _пример: axios.get(params)_, где __*params*__ настройки
   },
 
   // `onDownloadProgress` позволяет обрабатывать события прогресса скачивания данных
-  // как варианрт - разместить здесь индикачию размера скачиванемого файла
+  // как вариант - разместить здесь индикацию размера скачиваемого файла
   onDownloadProgress: function (progressEvent) {
     // делаем тут что угодно...
   },
@@ -322,7 +322,7 @@ _пример: axios.get(params)_, где __*params*__ настройки
 
   // `validateStatus` определяет, разрешать или отклонять Prоmise для данного
   // HTTP-ответа. Если `validateStatus` возвращает` true` (или установлен в `null`
-  // или `undefined`), Primise будет выполнен; в противном случае отклонен
+  // или `undefined`), Promise будет выполнен; в противном случае отклонен
   validateStatus: function (status) {
     return status >= 200 && status < 300; // default
   },
