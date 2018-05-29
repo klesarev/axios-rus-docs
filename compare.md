@@ -34,7 +34,7 @@
 npm init
 ```
 ```
-npm install --save-dev babel-cli babel-preset-env
+npm install babel-preset-env babel-preset-stage-2 --save-dev
 ```
 ```
 npm install axios
