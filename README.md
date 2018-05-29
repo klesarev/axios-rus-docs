@@ -16,7 +16,7 @@ _"Прошу понять и простить!"(Сашка Бородач)*_
 - [Примеры использования](/examples/)
 - [Полезные "рецепты для Axios"](/cookbook.md)
 - [Уроки. Использование с React.JS](/lessons/)
-- [Cравнение с Fetch и XMLHttpRequest](compare.md)
+- [Axios или Fetch - что лучше?](compare.md)
 
 Ссылка на оригинальную документацию - https://github.com/axios/axios
 
