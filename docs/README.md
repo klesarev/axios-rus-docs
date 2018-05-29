@@ -50,8 +50,8 @@ $ bower install axios
 ## Примеры использования
 ### GET - запрос
 ```javascript
-// делаем GET запрос чтобы получить пользователя (user) 
-// с указанным параметром ID = 12345
+/* делаем GET запрос чтобы получить пользователя (user) 
+*/ с указанным параметром ID = 12345
 axios.get('/user?ID=12345')
   .then(function (response) {
     console.log(response);
