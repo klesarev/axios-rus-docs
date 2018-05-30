@@ -10,8 +10,13 @@ npm install -g create-react-app
 ```
 ```
 create-react-app axios-test & cd axios-test
-npm start
 ```
+```
+npm install axios
+```
+
+### Создаем макет страницы
+
 
 
 ### Пишем GET-запрос
