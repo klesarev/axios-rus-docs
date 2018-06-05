@@ -1,7 +1,7 @@
 
 в процессе...
 
-## Использование Axios в ReactJS
+## ReactJS: работаем c OMDB API с помощью Axios
 
 Axios по праву считается самой популярной библиотектой для HTTP-запросов среди React разработчиков, благодаря простоте ее использования и наличию большого количества "фишек", которых нет в "нативном fetch"(*или же реализуются через "костыли"*).
 
@@ -60,9 +60,33 @@ export default App;
 <!-- CDN bootstrap css link -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
 ```
-Теперь быстро набросаем структуру нашего приложения. Создадим директорию `components` в папке `src`. Там будут хранится наши компоненты. Первым мы создадим компонент поиска - Search
-```
+Теперь быстро набросаем структуру нашего приложения. Создадим директорию `components` в папке `src`. Там будут хранится наши компоненты. 
+> Начинайте приложение всегда со статической разметки. Создайте структуру, пропишите css, а потом уже добавляйте функционал.
 
+Итак, начнем с компонента Search. Тут у нас будет форма с `input` и кнопкой. Создадим в папке `components` файл `Searcj.js`, и напишем там следующее
+```
+import React, { Component } from 'react';
+
+class Search extends Component {
+    constructor(props) {
+        super(props)
+    }
+
+    render(){
+        return ( 
+            <div className="container">
+                <form className="main-search">
+                    <div className="form-group">
+                        <input type="email" ref="title" className="form-control" placeholder="поиск..." />
+                    </div>
+                    <button type="submit" className="btn btn-primary">Search</button>
+                </form>
+            </div>
+        )    
+    } 
+}
+
+export default Search;
 ```
 
 
