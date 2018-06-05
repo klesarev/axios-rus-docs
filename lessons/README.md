@@ -100,6 +100,8 @@ constructor(props) {
 ### Результат
 Зпустим наш проект, выполнив команду `npm start`. Браузер откроет страницу по адресу http://localhost:3000
 
+
+![axios-rus-docs](/assets/img/axios.jpg)
 ![film-app](/assets/img/film-app-1.png)
 
 
