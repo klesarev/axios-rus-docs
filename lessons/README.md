@@ -52,17 +52,22 @@ export default api
 ### Пишем GET-запрос
 Откроем файл `App.js`и напишем нащ запрос к базе данных в методе `searchFilms()`
 ```
- axios.get(`${api.OMDB_PATH}&s=${title}`)
-  .then((response) => {
-    let status = (response.data.Response.toLowerCase() === 'true') ? true : false;
-    this.setState({
-        films: response.data.Search,
-        status: status,
-        err: response.data.Error
-    });
-    console.log('STATE', this.state)   
-  })
-  .catch( error => console.log(error.message) )  
+searchFilms(title) {    
+  axios.get(`${api.OMDB_PATH}&s=${title}`)
+    .then((response) => {
+      // посмотрим что приходит в ответе от сервера
+      console.log('RESPONSE->', response) 
+      
+      let status = (response.data.Response.toLowerCase() === 'true') ? true : false;
+      this.setState({
+          films: response.data.Search,
+          status: status,
+          err: response.data.Error
+      });
+      console.log('STATE', this.state)   
+    })
+    .catch( error => console.log(error.message) )     
+} 
 ```
 Итак, мы вызываем метод GET у axios, и в качестве ссылки передаем тужа шаблонную строку 
 ```
