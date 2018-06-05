@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.main-search {
+  margin-top: 50px;
+}
+.main-search .form-group {
+  display: inline-block;
+  width: 83%;
+  vertical-align: middle;
+  margin: 0 20px 0 0;
+}
+.main-search button {
+  display: inline-block;
+  vertical-align: middle;
+  width: 15%;
+}
+.card-wrapper {
+    margin-top: 50px;
+}
+.card-list {
+    margin-top: 50px;
+}
+.card-wrapper .card {
+    display: inline-block;
+    width: 240px;
+    vertical-align: top;
+    margin: 20px 15px;
+}
+.card-wrapper .card-image {
+   height: 350px;
+   position: relative;
+   border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+.card-wrapper .card-image img {
+    height: 100%;
+    width: 100%;
+ }
+ .card .badge {
+    position: absolute;
+    left: 50%;
+    bottom: -3%;
+    transform: translateX(-50%);
+    padding: 7px 25px;
+    font-size: 14px;
+ }
