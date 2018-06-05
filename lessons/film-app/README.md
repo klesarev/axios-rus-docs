@@ -2,7 +2,6 @@
 Использован шаблон [Create React App](https://github.com/facebookincubator/create-react-app).
 
 
-
 ## Использование
 #### 1.Клонируйте репозиторий либо скопируйте файлы себе
 #### 2.Установите зависимости
