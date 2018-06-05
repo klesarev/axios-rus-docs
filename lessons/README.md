@@ -99,7 +99,8 @@ constructor(props) {
 
 ### Результат
 Зпустим наш проект, выполнив команду `npm start`. Браузер откроет страницу по адресу http://localhost:3000
-![film-app-1](/lessons/img/film-app-1.png)
+
+[film-app-1](/lessons/img/film-app-1.png)
 
 
 Готовый проект можно скачать в папке [**film-app**](/lessons/film-app)
