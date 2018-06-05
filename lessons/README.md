@@ -49,7 +49,7 @@ export default api
 ```
 
 ### Пишем GET-запрос
-Откроем файл `App.js`и напишем нащ запрос к базе данных в методе `searchFilms()`
+Откроем файл `App.js`и напишем запрос к базе данных в методе `searchFilms()` с помощью метода GET
 ```js
 searchFilms(title) {    
   axios.get(`${api.OMDB_PATH}&s=${title}`)
