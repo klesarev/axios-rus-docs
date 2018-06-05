@@ -36,8 +36,22 @@ npm install axios
 ### Создаем макет
 Подчистим сначала созданный шаблон. Оставим к файле `App.js` следущее:
 
-Напишем компонент App
-```
+```js
+import React, { Component } from 'react';
+import './App.css';
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+
+      </div>
+    );
+  }
+}
+
+export default App;
+
 ```
 Напишем компонент Flim
 ```
