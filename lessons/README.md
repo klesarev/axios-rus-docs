@@ -53,10 +53,10 @@ class App extends Component {
 export default App;
 
 ```
-Для более быстрого прототипирования, подключим css библиотеку [**Materialize**](https://materializecss.com/getting-started.html). Можно конечно поставить специально сохданные под React наборы компонентов(*Bootstrap React или Material UI*), но нам нужно будет всего лишь пара элементов, пожтому ограничимся подключением css в файл `index.html`, который расположен в папке `public` нашего проекта 
+Для более быстрого прототипирования, подключим css библиотеку [**Material Light CSS**](https://getmdl.io/started/index.html). Можно конечно поставить специально сохданные под React наборы компонентов(*Bootstrap React или Material UI*), но нам нужно будет всего лишь пара элементов, пожтому ограничимся подключением css в файл `index.html`, который расположен в папке `public` нашего проекта 
 ```html
-<!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
 ```
 
 
