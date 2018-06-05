@@ -13,11 +13,14 @@ Axios по праву считается самой популярной биб�
 Также создал небольшую структуру компонентов.
 ```
 src
-  - components // папка с настройками
-    - Card.js // карточка фильма
-    - Content.js // обертка для компонентов
-    - Error.js // компонент ошибки
-    - Search // компонент поиска
+  - components 
+    - Card.js       // карточка фильма
+    - Content.js    // обертка для компонентов
+    - Error.js      // компонент ошибки
+    - Search        // компонент поиска
+    
+  App.js            // главный компонент
+  settings.js       // настройки доступа к API
 ```
 ...и установил Axios.
 ```
@@ -37,113 +40,6 @@ npm install axios
 В бесплатной версии количество запросов лимитировано(1000 в день). 1$ в месяц стоит 100 000 запросов, а за 5$ вы получите доступ к Poster API - сервису, который предоставляет постеры к фильмам в высоком разрешении. Со всеми тарифами можно ознакомиться на их странице в [Patreon](https://www.patreon.com/bePatron?u=5038490)
 
 ### Создаем макет
-Подчистим сначала созданный шаблон. Оставим в файле `App.js` следущее:
-
-```js
-import React, { Component } from 'react';
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-
-      </div>
-    );
-  }
-}
-
-export default App;
-
-```
-Для более быстрого прототипирования, подключим css библиотеку [**Botstrap**](https://getbootstrap.com/docs/4.1/getting-started/introduction/). Можно конечно поставить специально созданные под React наборы компонентов( *Bootstrap React или Material UI* ), но нам нужно будет всего лишь пара элементов, пожтому ограничимся подключением css в файл `index.html`, который расположен в папке `public` нашего проекта 
-```html
-<!-- CDN bootstrap css link -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-```
-Теперь быстро набросаем структуру нашего приложения. Создадим директорию `components` в папке `src`. Там будут хранится наши компоненты. 
-> Начинайте приложение всегда со статической разметки. Создайте структуру, пропишите css, а потом уже добавляйте функционал.
-
-
-### Компонент Search
-Итак, начнем с компонента Search. Тут у нас будет форма с `input` и кнопкой. Создадим в папке `components` файл `Search.js`, и напишем там следующее
-```js
-import React, { Component } from 'react';
-
-class Search extends Component {
-  constructor(props) {
-    super(props)
-        
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick(e){
-    e.preventDefault();
-    this.props.onSearch(this.refs.title.value);
-  }
-
-  render(){
-    return ( 
-      <div className="container">
-        <form className="main-search">
-          <div className="form-group">
-            <input type="email" ref="title" placeholder="поиск..." />
-          </div>
-          <button type="submit" className="btn btn-primary" onClick={ this.handleClick }>Search</button>
-         </form>
-      </div>
-    )    
-  } 
-}
-export default Search;
-```
-Здесь можно взять стандартный компонент формы из Bootstrap и кнопку. Полный список компонентов [здесь](https://getbootstrap.com/docs/4.0/components/buttons/)
-
-### Компонент Card
-Следующим на очереди будет компонент карточки фильма - Card.
-```js
-import React from 'react';
-
-function Card(props) {
-  let image = (props.poster === 'N/A') ? 
-  'https://www.nilfiskcfm.com/wp-content/uploads/2016/12/placeholder.png' : props.poster;
-
-  return (
-    <div className="card">
-      <div className="card-image">
-        <img src={ image } alt={props.title} />
-        <span class="badge badge-success">{ props.type }</span>
-      </div>
-      <div className="card-body">
-        <h5 className="card-title">{ props.title }</h5>
-        <p className="card-text">{ props.year }</p>
-      </div>
-    </div>
-  )
-}
-
-export default Card
-```
-> Важный момент! Так как у некоторых фильмов может не быть постера, сделаем так, чтобы при его отсутсвиии подставлялась картинка > `no-image`.
-```js
-let image = (props.poster === 'N/A') ? 
-    'https://www.nilfiskcfm.com/wp-content/uploads/2016/12/placeholder.png' : props.poster;
-```
-
-### Компонент Error
-Тут все просто. Компонент ошибки появится, если оп нашему запросу ничего не будет найдено!
-```js
-import React from 'react';
-
-function Error(props) {
-  return(
-    <div class="alert alert-danger" role="alert">
-        { props.error }
-    </div>
-  )
-}
-
-export default Error;
-```
 
 ### Пишем GET-запрос
 
