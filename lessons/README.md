@@ -17,7 +17,7 @@ src
    - Card.js       / карточка фильма
    - Content.js    / обертка для компонентов
    - Error.js      / компонент ошибки
-   - Search        / компонент поиска
+   - Search.js     / компонент поиска
     
   App.js           / главный компонент
   settings.js      / настройки доступа к API
@@ -49,9 +49,63 @@ const api = {
 export default api
 ```
 
-
 ### Пишем GET-запрос
+Откроем файл `App.js`и посмотрим на его структуру
+```
+class App extends Component {
+  constructor(props) {
+    super(props)
 
+    this.state = {
+      films: [],
+      status: true,
+      err: 'no errors...'
+    }
+
+  }
+
+  
+  searchFilms(title) {
+
+  }
+  
+  render() {
+    if(!this.state.status ) {
+      return (
+        <div className="App">
+          <Search onSearch={ this.searchFilms }/>
+          <Content>
+              <Error error={ this.state.err }/>
+          </Content>
+        </div>
+      )
+    } else {
+        return (
+          <div className="App">
+            <Search onSearch={ this.searchFilms }/>
+            <Content>
+                <div className="card-wrapper">
+                    {this.state.films.map((film)=> {
+                        return(
+                            <Card 
+                                title={ film.Title }
+                                year={ film.Year }
+                                poster={ film.Poster }
+                                type={ film.Type }
+                                key={ film.imdbID }
+                            />
+                        )
+                    })}
+                </div>
+            </Content>
+        </div>
+      )
+    }
+  }
+}
+
+export default App;
+```
 
 
 ### Вывод
