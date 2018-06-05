@@ -50,62 +50,26 @@ export default api
 ```
 
 ### Пишем GET-запрос
-Откроем файл `App.js`и посмотрим на его структуру
+Откроем файл `App.js`и напишем нащ запрос к базе данных в методе `searchFilms()`
 ```
-class App extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      films: [],
-      status: true,
-      err: 'no errors...'
-    }
-
-  }
-
-  
-  searchFilms(title) {
-
-  }
-  
-  render() {
-    if(!this.state.status ) {
-      return (
-        <div className="App">
-          <Search onSearch={ this.searchFilms }/>
-          <Content>
-              <Error error={ this.state.err }/>
-          </Content>
-        </div>
-      )
-    } else {
-        return (
-          <div className="App">
-            <Search onSearch={ this.searchFilms }/>
-            <Content>
-                <div className="card-wrapper">
-                    {this.state.films.map((film)=> {
-                        return(
-                            <Card 
-                                title={ film.Title }
-                                year={ film.Year }
-                                poster={ film.Poster }
-                                type={ film.Type }
-                                key={ film.imdbID }
-                            />
-                        )
-                    })}
-                </div>
-            </Content>
-        </div>
-      )
-    }
-  }
-}
-
-export default App;
+ axios.get(`${api.OMDB_PATH}&s=${title}`)
+  .then((response) => {
+    let status = (response.data.Response.toLowerCase() === 'true') ? true : false;
+    this.setState({
+        films: response.data.Search,
+        status: status,
+        err: response.data.Error
+    });
+    console.log('STATE', this.state)   
+  })
+  .catch( error => console.log(error.message) )  
 ```
+Итак, мы вызываем метод GET у axios, и в качестве ссылки передаем тужа шаблонную строку 
+```
+`${api.OMDB_PATH}&s=${title}`
+```
+- api.OMDB_PATH вернет ссылку для запроса `http://www.omdbapi.com/?apikey=${this.OMDB_KEY}`, где *OMDB_KEY* - ваш ключ к API
+- s=${title} `s=`- парметр поиска, который вернет все найденные фильмы с заголовком `${title}`, введенному в поиск. Например s=Batman
 
 
 ### Вывод
