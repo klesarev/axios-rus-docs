@@ -23,8 +23,6 @@ create-react-app film-app & cd film-app
 ```
 npm install axios
 ```
-Готовый проект можно скачать в папке [**film-app**](/lessons/film-app)
-
 
 ### API
 Получать данные мы будем с помощью [OMDB API](http://www.omdbapi.com/). Это открытая база фильмов. Здесь есть 2 оснвных вида запроса
@@ -68,13 +66,20 @@ export default App;
 
 
 ### Компонент Search
-Итак, начнем с компонента Search. Тут у нас будет форма с `input` и кнопкой. Создадим в папке `components` файл `Searcj.js`, и напишем там следующее
+Итак, начнем с компонента Search. Тут у нас будет форма с `input` и кнопкой. Создадим в папке `components` файл `Search.js`, и напишем там следующее
 ```js
 import React, { Component } from 'react';
 
 class Search extends Component {
     constructor(props) {
         super(props)
+        
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick(e){
+        e.preventDefault();
+        this.props.onSearch(this.refs.title.value);
     }
 
     render(){
@@ -84,13 +89,12 @@ class Search extends Component {
                     <div className="form-group">
                         <input type="email" ref="title" className="form-control" placeholder="поиск..." />
                     </div>
-                    <button type="submit" className="btn btn-primary">Search</button>
+                    <button type="submit" className="btn btn-primary" onClick={ this.handleClick }>Search</button>
                 </form>
             </div>
         )    
     } 
 }
-
 export default Search;
 ```
 Здесь можно взять стандартный компонент формы из Bootstrap и кнопку. Полный список компонентов [здесь](https://getbootstrap.com/docs/4.0/components/buttons/)
@@ -114,17 +118,38 @@ function Card(props) {
                 <h5 className="card-title">{ props.title }</h5>
                 <p className="card-text">{ props.year }</p>
             </div>
-           
         </div>
     )
 }
 
 export default Card
 ```
+Важный момент! Так как у некоторых фильмов может не быть постера, сделаем так, чтобы при его отсутсвиии подставлялась картинка `no-image`.
+```js
+let image = (props.poster === 'N/A') ? 
+    'https://www.nilfiskcfm.com/wp-content/uploads/2016/12/placeholder.png' : props.poster;
+```
 
+### Компонент Error
+Тут все просто. Компонент ошибки появится, если оп нашему запросу ничего не будет найдено!
+```js
+import React from 'react';
+
+function Error(props) {
+    return(
+        <div class="alert alert-danger" role="alert">
+            { props.error }
+        </div>
+    )
+}
+
+export default Error;
+```
 
 ### Пишем GET-запрос
 
 
 
 ### Вывод
+
+Готовый проект можно скачать в папке [**film-app**](/lessons/film-app)
