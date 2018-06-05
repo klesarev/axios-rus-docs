@@ -51,10 +51,11 @@ export default api
 
 ### Пишем GET-запрос
 Откроем файл `App.js`и напишем нащ запрос к базе данных в методе `searchFilms()`
-```
+```js
 searchFilms(title) {    
   axios.get(`${api.OMDB_PATH}&s=${title}`)
     .then((response) => {
+    
       // посмотрим что приходит в ответе от сервера
       console.log('RESPONSE->', response) 
       
@@ -63,8 +64,7 @@ searchFilms(title) {
           films: response.data.Search,
           status: status,
           err: response.data.Error
-      });
-      console.log('STATE', this.state)   
+      }); 
     })
     .catch( error => console.log(error.message) )     
 } 
@@ -73,9 +73,26 @@ searchFilms(title) {
 ```
 `${api.OMDB_PATH}&s=${title}`
 ```
-- api.OMDB_PATH вернет ссылку для запроса `http://www.omdbapi.com/?apikey=${this.OMDB_KEY}`, где *OMDB_KEY* - ваш ключ к API
-- s=${title} `s=`- парметр поиска, который вернет все найденные фильмы с заголовком `${title}`, введенному в поиск. Например s=Batman
+- **api.OMDB_PATH** вернет ссылку для запроса `http://www.omdbapi.com/?apikey=${this.OMDB_KEY}`, где *OMDB_KEY* - ваш ключ к API
+- **s=${title}** `s=`- парметр поиска, который вернет все найденные фильмы с заголовком `${title}`, введенному в поиск. Например s=Batman
 
+Не забудем пробросить метод searchFilms в constructor у компонента `App`, чтобы его контекст не потерялся
+```js
+constructor(props) {
+  super(props)
+
+  this.state = {
+    films: [],
+    status: true,
+    err: 'no errors...'
+  }
+
+  this.search = this.search.bind(this);
+}
+```
+- **films** наш итоговый массив с фильмами
+- **status** статус ответа от сервера, true - все хорошо и данные пришли, false - ошибка
+- **err** текст ошибки, которая вернется в случае status=false
 
 ### Вывод
 
