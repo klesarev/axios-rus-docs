@@ -20,6 +20,8 @@ create-react-app film-app & cd film-app
 ```
 npm install axios
 ```
+Готовый проект можно скачать в папке [**film-app**](/film-app)
+
 
 ### API
 Получать данные мы будем с помощью [OMDB API](http://www.omdbapi.com/). Это открытая база фильмов. Здесь есть 2 оснвных вида запроса
