@@ -99,10 +99,7 @@ constructor(props) {
 
 ### Результат
 Запустим наш проект, выполнив команду `npm start`. Браузер откроет страницу по адресу http://localhost:3000
-
 ![film-app-1](/assets/img/film-app-1.jpg)
-
 Попробуем ввести запрос. Напрмиер найдем все фильмы с РобоКопом
-
 ![film-app-2](/assets/img/film-app-2.jpg)
 
