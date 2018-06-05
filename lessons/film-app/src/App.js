@@ -17,35 +17,18 @@ class App extends Component {
             err: 'no errors...'
         }
 
-        this.search = this.search.bind(this);
     }
 
-    
-
    
-    search(title) {
-        
-        axios.get(`${api.OMDB_PATH}&s=${title}`)
-            .then((response) => {
-                console.log('resp',response)
-                let status = (response.data.Response.toLowerCase() === 'true') ? true : false;
-                
-                this.setState({
-                    films: response.data.Search,
-                    status: status,
-                    err: response.data.Error
-                });
-                console.log('STATE', this.state)   
-            })
-            .catch( error => console.log(error.message) )  
-         
+    searchFilms(title) {
+          
     }
   
     render() {
         if(!this.state.status ) {
             return (
                 <div className="App">
-                    <Search onSearch={ this.search }/>
+                    <Search onSearch={ this.searchFilms }/>
                     <Content>
                         <Error error={ this.state.err }/>
                     </Content>
@@ -54,7 +37,7 @@ class App extends Component {
         } else {
             return (
                 <div className="App">
-                    <Search onSearch={ this.search }/>
+                    <Search onSearch={ this.searchFilms }/>
                     
                     <Content>
                         <div className="card-wrapper">

@@ -7,7 +7,7 @@ function Card(props) {
         <div className="card">
             <div className="card-image">
                 <img src={ image } alt={props.title} />
-                <span class="badge badge-success">{ props.type }</span>
+                <span className="badge badge-success">{ props.type }</span>
             </div>
             <div className="card-body">
                 <h5 className="card-title">{ props.title }</h5>
