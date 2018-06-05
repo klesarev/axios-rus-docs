@@ -69,12 +69,12 @@ searchFilms(title) {
     .catch( error => console.log(error.message) )     
 } 
 ```
-Итак, мы вызываем метод GET у axios, и в качестве ссылки передаем тужа шаблонную строку 
+Итак, мы вызываем метод GET у axios, и в качестве ссылки передаем туда шаблонную строку 
 ```
 `${api.OMDB_PATH}&s=${title}`
 ```
 - **api.OMDB_PATH** вернет ссылку для запроса `http://www.omdbapi.com/?apikey=${this.OMDB_KEY}`, где *OMDB_KEY* - ваш ключ к API
-- **s=${title}** `s=`- парметр поиска, который вернет все найденные фильмы с заголовком `${title}`, введенному в поиск. Например s=Batman
+- **s=${title}** `s=`- парметр поиска, который вернет все найденные фильмы с заголовком `${title}`. Например s=Batman вернет все фильмы, в названии которых есть слово Batman
 
 Не забудем пробросить метод searchFilms в constructor у компонента `App`, чтобы его контекст не потерялся
 ```js
@@ -87,12 +87,13 @@ constructor(props) {
     err: 'no errors...'
   }
 
-  this.search = this.search.bind(this);
+  this.searchFilm = this.searchFilm.bind(this);
 }
 ```
 - **films** наш итоговый массив с фильмами
 - **status** статус ответа от сервера, true - все хорошо и данные пришли, false - ошибка
 - **err** текст ошибки, которая вернется в случае status=false
+- **searchFilm** собственно сам метод поиска фильмов
 
 ### Вывод
 
