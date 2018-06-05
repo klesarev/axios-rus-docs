@@ -34,7 +34,7 @@ npm install axios
 В бесплатной версии количество запросов лимитировано(1000 в день). 1$ в месяц стоит 100 000 запросов, а за 5$ вы получите доступ к Poster API - сервису, который предоставляет постеры к фильмам в высоком разрешении. Со всеми тарифами можно ознакомиться на их странице в [Patreon](https://www.patreon.com/bePatron?u=5038490)
 
 ### Создаем макет
-Подчистим сначала созданный шаблон. Оставим к файле `App.js` следущее:
+Подчистим сначала созданный шаблон. Оставим в файле `App.js` следущее:
 
 ```js
 import React, { Component } from 'react';
@@ -53,10 +53,14 @@ class App extends Component {
 export default App;
 
 ```
-Напишем компонент Flim
+Для более быстрого прототипирования, подключим css библиотеку [**Materialize**](https://materializecss.com/getting-started.html). Можно конечно поставить специально сохданные под React наборы компонентов(*Bootstrap React или Material UI*), но нам нужно будет всего лишь пара элементов, пожтому ограничимся подключением css в файл `index.html`, который расположен в папке `public` нашего проекта 
+```html
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 ```
-```
-Напишем компонент Search
+
+
+
 ```
 ```
 
