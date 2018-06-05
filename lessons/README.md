@@ -87,7 +87,7 @@ class Search extends Component {
             <div className="container">
                 <form className="main-search">
                     <div className="form-group">
-                        <input type="email" ref="title" className="form-control" placeholder="поиск..." />
+                        <input type="email" ref="title" placeholder="поиск..." />
                     </div>
                     <button type="submit" className="btn btn-primary" onClick={ this.handleClick }>Search</button>
                 </form>
