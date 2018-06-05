@@ -57,8 +57,9 @@ export default App;
 ```
 Для более быстрого прототипирования, подключим css библиотеку [**Botstrap**](https://getbootstrap.com/docs/4.1/getting-started/introduction/). Можно конечно поставить специально созданные под React наборы компонентов( *Bootstrap React или Material UI* ), но нам нужно будет всего лишь пара элементов, пожтому ограничимся подключением css в файл `index.html`, который расположен в папке `public` нашего проекта 
 ```html
+<!-- CDN bootstrap css link -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" 
-    integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 ```
 Теперь быстро набросаем структуру нашего приложения. Создадим директорию `components` в папке `src`. Там будут хранится наши компоненты. Первым мы создадим компонент поиска - Search
 ```
