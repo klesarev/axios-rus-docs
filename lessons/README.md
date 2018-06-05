@@ -98,11 +98,11 @@ constructor(props) {
 - **searchFilm** собственно сам метод поиска фильмов
 
 ### Результат
-Зпустим наш проект, выполнив команду `npm start`. Браузер откроет страницу по адресу http://localhost:3000
+Запустим наш проект, выполнив команду `npm start`. Браузер откроет страницу по адресу http://localhost:3000
 
+![film-app-1](/assets/img/film-app-1.jpg)
 
-![axios-rus-docs](/assets/img/axios.jpg)
-![film-app](/assets/img/film-app-1.png)
+Попробуем ввести запрос. Напрмиер найдем все фильмы с Бэтменом
 
+![film-app-2](/assets/img/film-app-2.jpg)
 
-Готовый проект можно скачать в папке [**film-app**](/lessons/film-app)
