@@ -20,7 +20,7 @@ create-react-app film-app & cd film-app
 ```
 npm install axios
 ```
-Готовый проект можно скачать в папке [**film-app**](/film-app)
+Готовый проект можно скачать в папке [**film-app**](/lessons/film-app)
 
 
 ### API
