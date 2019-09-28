@@ -665,7 +665,7 @@ import axios from 'axios';
 axios.get('/user?ID=12345');
 ```
 
-## Дополнительная ифнормация
+## Дополнительная информация
 
 * [Изменения](https://github.com/axios/axios/blob/master/CHANGELOG.md)
 * [Руководство по обновлению](https://github.com/axios/axios/blob/master/UPGRADE_GUIDE.md)
